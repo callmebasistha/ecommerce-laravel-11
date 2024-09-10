@@ -2,22 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
 <head>
-    <title>{{env('APP_NAME')}}</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta charset="utf-8">
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
-    @vite([
-        'resources/css/backend/animate.min.css',
-        'resources/css/backend/animation.css',
-        'resources/css/backend/bootstrap.css',
-        'resources/css/backend/bootstrap-select.min.css',
-        'resources/css/backend/style.css',
-        'resources/css/backend/font/font.css',
-        'resources/css/backend/icon/style.css',
-        'resources/css/backend/sweetalert.min.css',
-        'resources/css/backend/custom.css'])
+    @vite(['resources/css/backend/animate.min.css', 'resources/css/backend/animation.css', 'resources/css/backend/bootstrap.css', 'resources/css/backend/bootstrap-select.min.css', 'resources/css/backend/style.css', 'resources/css/backend/font/font.css', 'resources/css/backend/icon/style.css', 'resources/css/backend/sweetalert.min.css', 'resources/css/backend/custom.css'])
 </head>
 
 <body class="body">
@@ -30,43 +21,49 @@
         <span></span>
     </div>
 </div> -->
-@include('backend.partials.sidebar')
+                @include('backend.partials.sidebar')
                 @yield('main')
-                <div class="bottom-page">
-                    <div class="body-text">Copyright © 2024 SurfsideMedia</div>
-                </div>
             </div>
         </div>
     </div>
 
-    <script src={{asset("backend/js/jquery.min.js")}}></script>
-    <script src={{asset("backend/js/bootstrap.min.js")}}></script>
-    <script src={{asset("backend/js/bootstrap-select.min.js")}}></script>
-    <script src={{asset("backend/js/sweetalert.min.js")}}></script>
-    <script src={{asset("backend/js/apexcharts/apexcharts.js")}}></script>
-    <script src={{asset("backend/js/main.js")}}></script>
+    <script src={{ asset('backend/js/jquery.min.js') }}></script>
+    <script src={{ asset('backend/js/bootstrap.min.js') }}></script>
+    <script src={{ asset('backend/js/bootstrap-select.min.js') }}></script>
+    <script src={{ asset('backend/js/sweetalert.min.js') }}></script>
+    <script src={{ asset('backend/js/apexcharts/apexcharts.js') }}></script>
+    <script src={{ asset('backend/js/main.js') }}></script>
     <script>
-        (function ($) {
+        (function($) {
 
-            var tfLineChart = (function () {
+            var tfLineChart = (function() {
 
-                var chartBar = function () {
+                var chartBar = function() {
 
                     var options = {
                         series: [{
-                            name: 'Total',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }, {
-                            name: 'Pending',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        },
-                        {
-                            name: 'Delivered',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }, {
-                            name: 'Canceled',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }],
+                                name: 'Total',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00,
+                                    0.00, 0.00, 0.00
+                                ]
+                            }, {
+                                name: 'Pending',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00,
+                                    0.00, 0.00, 0.00
+                                ]
+                            },
+                            {
+                                name: 'Delivered',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00,
+                                    0.00, 0.00
+                                ]
+                            }, {
+                                name: 'Canceled',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00,
+                                    0.00, 0.00
+                                ]
+                            }
+                        ],
                         chart: {
                             type: 'bar',
                             height: 325,
@@ -97,7 +94,9 @@
                                     colors: '#212529',
                                 },
                             },
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+                                'Oct', 'Nov', 'Dec'
+                            ],
                         },
                         yaxis: {
                             show: false,
@@ -107,7 +106,7 @@
                         },
                         tooltip: {
                             y: {
-                                formatter: function (val) {
+                                formatter: function(val) {
                                     return "$ " + val + ""
                                 }
                             }
@@ -125,22 +124,22 @@
 
                 /* Function ============ */
                 return {
-                    init: function () { },
+                    init: function() {},
 
-                    load: function () {
+                    load: function() {
                         chartBar();
                     },
-                    resize: function () { },
+                    resize: function() {},
                 };
             })();
 
-            jQuery(document).ready(function () { });
+            jQuery(document).ready(function() {});
 
-            jQuery(window).on("load", function () {
+            jQuery(window).on("load", function() {
                 tfLineChart.load();
             });
 
-            jQuery(window).on("resize", function () { });
+            jQuery(window).on("resize", function() {});
         })(jQuery);
     </script>
 </body>

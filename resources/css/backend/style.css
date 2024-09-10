@@ -3209,7 +3209,7 @@ select.h40 {
   width: 100%;
   margin: auto;
 }
-.layout-wrap .bottom-page {
+.layout-wrap .section-content-right .main-content .bottom-page {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -3222,14 +3222,14 @@ select.h40 {
   background: var(--White);
   box-shadow: 0px 4px 24px 2px rgba(20, 25, 38, 0.05);
 }
-.layout-wrap .bottom-page i {
+.layout-wrap .section-content-right .main-content .bottom-page i {
   font-size: 16px;
   color: var(--Style);
 }
-.layout-wrap .bottom-page a {
+.layout-wrap .section-content-right .main-content .bottom-page a {
   color: var(--Main);
 }
-.layout-wrap .bottom-page a:hover {
+.layout-wrap .section-content-right .main-content .bottom-page a:hover {
   color: var(--Style);
 }
 .layout-wrap.full-width .section-content-right .main-content {

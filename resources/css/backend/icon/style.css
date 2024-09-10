@@ -433,6 +433,9 @@
 .icon-layers:before {
   content: "\e9a4";
 }
+.icon-brand:before {
+  content: "\f02c";
+}
 .icon-layout:before {
   content: "\e9a5";
 }
