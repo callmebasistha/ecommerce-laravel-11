@@ -14,7 +14,7 @@ To use the application please follow the steps below.
 - Clone the repository to your local machine.
 - open the cloned directory to your local machine.
 - Create a database for your application.
-- copy `.env.example` to `.env` file and configured required properties.
+- copy `.env.example` to `.env` file and configure required properties.
 - enter the following commands
     - `Compose install`
     - `npm install`
