@@ -31,7 +31,7 @@
                         </div>
                     </form>
                 </div>
-                <a class="tf-button style-1 w208" href="add-slide.html"><i class="icon-plus"></i>Add new</a>
+                <a class="tf-button style-1 w208" href="{{route('admin.add-sliders')}}"><i class="icon-plus"></i>Add new</a>
             </div>
             <div class="wg-table table-all-user">
                 <table class="table table-striped table-bordered">
@@ -47,17 +47,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($sliders  as $key => $item )
                         <tr>
-                            <td>3</td>
+                            <td>{$item->id}</td>
                             <td class="pname">
                                 <div class="image">
                                     <img src="1718066840.html" alt="" class="image">
                                 </div>
                             </td>
-                            <td>New Arrivals</td>
-                            <td>Night Spring</td>
-                            <td>Dresses</td>
-                            <td>https://www.google.com</td>
+                            <td>{$item->tagline}</td>
+                            <td>{$item->title}</td>
+                            <td>{$item->subtitle}</td>
+                            <td>{$item->link}</td>
                             <td>
                                 <div class="list-icon-function">
                                     <a href="http://localhost:8000/admin/slider/3/edit">
@@ -76,6 +77,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

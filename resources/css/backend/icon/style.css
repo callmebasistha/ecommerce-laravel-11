@@ -5,10 +5,10 @@
     url('fonts/icomoon93d993d9.ttf?rd1719') format('truetype'),
     url('fonts/icomoon93d993d9.woff?rd1719') format('woff'),
     url('fonts/icomoon93d993d9.svg?rd1719#icomoon') format('svg');
-  font-weight: normal;
+  font-isplay: block;
+}weight: normal;
   font-style: normal;
-  font-display: block;
-}
+  font-d
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
