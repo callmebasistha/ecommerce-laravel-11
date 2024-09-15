@@ -96,7 +96,7 @@
                     </ul>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('admin.sliders')}}" class="">
+                    <a href="{{route('sliders.list')}}" class="">
                         <div class="icon"><i class="icon-image"></i></div>
                         <div class="text">Slider</div>
                     </a>

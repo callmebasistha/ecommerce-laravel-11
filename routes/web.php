@@ -16,9 +16,40 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::name('admin.')->group(function () {
-        Route ::get('sliders',[SliderController::class,'index'])->name('sliders');
-        Route ::get('add-sliders',[SliderController::class,'create'])->name('add-sliders');
+    Route::name('sliders.')->prefix('slider')->group(function () {
+        Route ::get('',[SliderController::class,'index'])->name('list');
+        Route ::get('add',[SliderController::class,'create'])->name('create');
+        Route ::post('',[SliderController::class,'store'])->name('store');
+        Route ::post('update',[SliderController::class,'store'])->name('update');
+        Route ::post('delete',[SliderController::class,'store'])->name('delete');
+    });
+    Route::name('product.')->prefix('product')->group(function () {
+        Route ::get('',[SliderController::class,'index'])->name('list');
+        Route ::get('add',[SliderController::class,'create'])->name('create');
+        Route ::post('',[SliderController::class,'store'])->name('store');
+        Route ::post('update',[SliderController::class,'store'])->name('update');
+        Route ::post('delete',[SliderController::class,'store'])->name('delete');
+    });
+    Route::name('brand.')->prefix('brand')->group(function () {
+        Route ::get('',[SliderController::class,'index'])->name('list');
+        Route ::get('add',[SliderController::class,'create'])->name('create');
+        Route ::post('',[SliderController::class,'store'])->name('store');
+        Route ::post('update',[SliderController::class,'store'])->name('update');
+        Route ::post('delete',[SliderController::class,'store'])->name('delete');
+    });
+    Route::name('category.')->prefix('category')->group(function () {
+        Route ::get('',[SliderController::class,'index'])->name('list');
+        Route ::get('add',[SliderController::class,'create'])->name('create');
+        Route ::post('',[SliderController::class,'store'])->name('store');
+        Route ::post('update',[SliderController::class,'store'])->name('update');
+        Route ::post('delete',[SliderController::class,'store'])->name('delete');
+    });
+    Route::name('coupons.')->prefix('product')->group(function () {
+        Route ::get('',[SliderController::class,'index'])->name('list');
+        Route ::get('add',[SliderController::class,'create'])->name('create');
+        Route ::post('',[SliderController::class,'store'])->name('store');
+        Route ::post('update',[SliderController::class,'store'])->name('update');
+        Route ::post('delete',[SliderController::class,'store'])->name('delete');
     });
 });
 

@@ -31,7 +31,7 @@
                         </div>
                     </form>
                 </div>
-                <a class="tf-button style-1 w208" href="{{route('admin.add-sliders')}}"><i class="icon-plus"></i>Add new</a>
+                <a class="tf-button style-1 w208" href="{{route('sliders.create')}}"><i class="icon-plus"></i>Add new</a>
             </div>
             <div class="wg-table table-all-user">
                 <table class="table table-striped table-bordered">
@@ -49,16 +49,20 @@
                     <tbody>
                         @foreach ($sliders  as $key => $item )
                         <tr>
-                            <td>{$item->id}</td>
+                            <td>{{$loop->iteration}}</td>
                             <td class="pname">
                                 <div class="image">
+                                    @if ($item->hasMedia('slider-image'))
+                                    <img loading='lazy' src={{$item->getMedia('slider-image')[0]->getUrl('preview')}} alt="" class="image">
+                                    @else
                                     <img src="1718066840.html" alt="" class="image">
+                                    @endif
                                 </div>
                             </td>
-                            <td>{$item->tagline}</td>
-                            <td>{$item->title}</td>
-                            <td>{$item->subtitle}</td>
-                            <td>{$item->link}</td>
+                            <td>{{$item->tagline}}</td>
+                            <td>{{$item->title}}</td>
+                            <td>{{$item->subtitle}}</td>
+                            <td>{{$item->link}}</td>
                             <td>
                                 <div class="list-icon-function">
                                     <a href="http://localhost:8000/admin/slider/3/edit">

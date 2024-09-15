@@ -3,7 +3,12 @@
     <!-- main-content-wrap -->
     <div class="main-content-wrap">
         <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-            <h3>Slide</h3>
+            <a href="{{route('sliders.list')}}">
+            <span class="icon">
+                <i class="icon-arrow-left">
+                </i>
+            </span>
+            </a>
             <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                 <li>
                     <a href="index.html">
@@ -28,20 +33,26 @@
         </div>
         <!-- new-category -->
         <div class="wg-box">
-            <form class="form-new-product form-style-1">
+            <form action="{{route('sliders.store')}}" class="form-new-product form-style-1" method="POST" enctype="multipart/form-data">
+                @csrf
                 <fieldset class="name">
-                    <div class="body-title">Title <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Title" name="text" tabindex="0" value=""
+                    <div class="body-title">Tagline <span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Title" name="tagline" tabindex="0" value=""
                         aria-required="true" required="">
                 </fieldset>
                 <fieldset class="name">
-                    <div class="body-title">Line 1 <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Line 1" name="text" tabindex="0"
+                    <div class="body-title">Title <span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Line 1" name="title" tabindex="0"
                         value="" aria-required="true" required="">
                 </fieldset>
                 <fieldset class="name">
-                    <div class="body-title">Line 2 <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Line 2" name="text" tabindex="0"
+                    <div class="body-title">Sub-title<span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Line 2" name="subtitle" tabindex="0"
+                        value="" aria-required="true" required="">
+                </fieldset>
+                <fieldset class="name">
+                    <div class="body-title">link<span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Line 2" name="link" tabindex="0"
                         value="" aria-required="true" required="">
                 </fieldset>
                 <fieldset>
@@ -55,7 +66,7 @@
                                 </span>
                                 <span class="body-text">Drop your images here or select <span class="tf-color">click to
                                         browse</span></span>
-                                <input type="file" id="myFile" name="filename">
+                                <input type="file" id="myFile" name="file" accept="imageimage/png, image/gif, image/jpeg">
                             </label>
                         </div>
                     </div>

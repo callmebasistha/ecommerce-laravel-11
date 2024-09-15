@@ -12,7 +12,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::with('media')->get();
         return view('backend.pages.slider', compact('sliders'));
     }
 
@@ -29,7 +29,15 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+$file = $data['file'] ?? null;
+        $createdSlider = Slider::create($data);
+        $fileName = md5($file->getClientOriginalName());
+        $fileExtension = $file->getClientOriginalExtension();
+        if(!!$file){
+            $createdSlider->addMedia($file)->usingFileName($fileName.'.'.$fileExtension)->toMediaCollection('slider-image');
+        }
+        return back();
     }
 
     /**
