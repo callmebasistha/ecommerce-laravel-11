@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\product;
+use App\Models\Product ;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.add-product');
     }
 
     /**
@@ -28,6 +28,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        try {
+            $data = $request->all();
+            $file = $data['image'] ?? null;
+            $createdProduct = Product::create($data);
+            $fileName = md5($file->getClientOriginalName());
+            $fileExtension = $file->getClientOriginalExtension();
+            if(!!$file){
+                $createdProduct->addMedia($file)->usingFileName($fileName.'.'.$fileExtension)->toMediaCollection('slider-image');
+            }
+            toastify()->success('Product created.');
+            return back();
+        } catch (\Throwable $th) {
+            toastify()->error('Some error occured.');
+            return back()->withInput();
+        }
         //
     }
 

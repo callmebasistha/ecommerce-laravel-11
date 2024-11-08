@@ -23,12 +23,11 @@ class Slider extends Model implements HasMedia
         'link'
     ];
 
-
     public function registerMediaConversions(?Media $media = null): void
-{
-    $this
-        ->addMediaConversion('preview')
-        ->fit(Fit::Contain, 300, 300)
-        ->nonQueued();
-}
+    {
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Fit::Contain, 300, 300)
+            ->nonQueued();
+    }
 }

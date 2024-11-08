@@ -27,26 +27,22 @@
                     </ul>
                 </div>
                 <!-- form-add-product -->
-                <form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data"
-                    action="http://localhost:8000/admin/product/store">
-                    <input type="hidden" name="_token" value="8LNRTO4LPXHvbK2vgRcXqMeLgqtqNGjzWSNru7Xx"
-                        autocomplete="off">
+                <form action="{{route('products.store')}}" class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="wg-box">
                         <fieldset class="name">
                             <div class="body-title mb-10">Product name <span class="tf-color-1">*</span>
                             </div>
-                            <input class="mb-10" type="text" placeholder="Enter product name"
-                                name="name" tabindex="0" value="" aria-required="true" required="">
+                            <input class="mb-10" type="text" placeholder="Enter product name" id="product-name"
+                                name="name" tabindex="0" value="" aria-required="true" required="" onchange="onProductNameChange(event)">
                             <div class="text-tiny">Do not exceed 100 characters when entering the
                                 product name.</div>
                         </fieldset>
 
                         <fieldset class="name">
-                            <div class="body-title mb-10">Slug <span class="tf-color-1">*</span></div>
-                            <input class="mb-10" type="text" placeholder="Enter product slug"
-                                name="slug" tabindex="0" value="" aria-required="true" required="">
-                            <div class="text-tiny">Do not exceed 100 characters when entering the
-                                product name.</div>
+                            <div class="body-title mb-10">Slug</div>
+                            <input disabled class="mb-10" type="text" placeholder="Enter product slug"
+                                name="slug" tabindex="0" aria-required="true" id="product-slug">
                         </fieldset>
 
                         <div class="gap22 cols">
@@ -205,5 +201,24 @@
             <!-- /main-content-wrap -->
         </div>
         <!-- /main-content-wrap -->
+
+@endsection
+@section('script')
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        // do your stuff here
+    });
+
+    function onProductNameChange(e){
+        var productName = document.getElementById('product-name').value;
+        var slugValue = productName.toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+    var slug = document.getElementById('product-slug');
+    slug.setAttribute('placeholder',productName? slugValue:'Enter product name');
+
+}
+
+</script>
 
 @endsection

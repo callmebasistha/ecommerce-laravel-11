@@ -21,7 +21,12 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.add-slide');
+        $breadcrums = [
+            "dashboard" => "dashboard",
+            "index" =>"sliders.list",
+            "current" =>"sliders.create"
+        ];
+        return view('backend.pages.add-slide', compact('breadcrums'));
     }
 
     /**

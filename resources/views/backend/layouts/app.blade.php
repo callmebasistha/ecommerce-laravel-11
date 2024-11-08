@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
     @vite(['resources/css/backend/animate.min.css', 'resources/css/backend/animation.css', 'resources/css/backend/bootstrap.css', 'resources/css/backend/bootstrap-select.min.css', 'resources/css/backend/style.css', 'resources/css/backend/font/font.css', 'resources/css/backend/icon/style.css', 'resources/css/backend/sweetalert.min.css', 'resources/css/backend/custom.css'])
+    @toastifyCss
 </head>
 
 <body class="body">
@@ -23,6 +24,7 @@
 </div> -->
                 @include('backend.partials.sidebar')
                 @yield('main')
+                @yield('script')
             </div>
         </div>
     </div>
@@ -143,5 +145,6 @@
         })(jQuery);
     </script>
 </body>
+@toastifyJs
 
 </html>
